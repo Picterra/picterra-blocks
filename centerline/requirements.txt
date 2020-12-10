@@ -1,0 +1,2 @@
+shapely==1.7.1
+centerline==0.6.3
