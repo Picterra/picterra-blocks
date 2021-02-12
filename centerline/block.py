@@ -5,15 +5,13 @@ from centerline.geometry import Centerline
 
 # Input features should be in EPSG:4326, and units in degrees.
 
-with open('/data/inputs.json', 'r') as f:
-    params = json.load(f)
+with open('/input/features.geojson', 'r') as f:
+    features = json.load(f)['features']
 
-input_file_path = os.path.join('/data/', params['input_features'])
-output_file_path = '/data/output_features'
-border_density = params['border_density']
+with open('input/border_density', 'r') as f:
+    border_density = float(f.read())
 
-with open(input_file_path) as f:
-  features = json.load(f)["features"]
+output_file_path = '/output/centerlines.geojson'
 
 centerlines = []
 i=0
